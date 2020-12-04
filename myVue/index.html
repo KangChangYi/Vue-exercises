@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p @click="onClickCounter">{{counter}}</p>
+    <p my-text="counter"></p>
+    <p my-html="desc"></p>
+    <input type="text" my-model="inputValue" />
+    <div>this is inputValue：{{inputValue}}</div>
+    <!-- <input type="text" k-model="desc"> -->
+  </div>
+  <script src="./myVue.js"></script>
+  <script>
+    const vm = new myVue({
+      el: '#app',
+      data: {
+        desc: `<a href="http://www.baidu.com">this is baidu</a>`,
+        counter: 1,
+        inputValue: 0
+      },
+      methods: {
+        onClickCounter() {
+          this.counter++
+          console.log(this.counter);
+        }
+      }
+    })
+    // setInterval(() => {
+    //   vm.counter++
+    //   console.log(vm.counter);
+    // }, 1000)
+  </script>
+</body>
+
+</html>
